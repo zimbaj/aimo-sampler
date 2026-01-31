@@ -1,0 +1,29 @@
+# Core dependencies
+# NOTE: For GPU support, install PyTorch with CUDA FIRST:
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu118
+# Then install the rest of the requirements:
+#   pip install -r requirements.txt
+
+# PyTorch (install with CUDA separately - see above)
+# torch>=2.0.0
+# torchaudio>=2.0.0
+
+transformers>=4.35.0
+accelerate>=1.0.0  # Required for GPU device mapping
+# audiocraft>=1.2.0  # Optional, uses transformers instead
+
+# Audio processing
+scipy>=1.11.0
+numpy>=1.24.0
+soundfile>=0.12.0
+pydub>=0.25.0
+
+# CLI
+click>=8.1.0
+rich>=13.0.0
+
+# Configuration
+pyyaml>=6.0
+
+# Optional: Web UI
+# gradio>=4.0.0

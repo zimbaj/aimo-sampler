@@ -1,0 +1,165 @@
+# AIMO Sampler Configuration
+
+# Model settings
+model:
+  name: "facebook/musicgen-medium"  # small, medium, or large
+  device: "cuda"  # cuda or cpu
+  cache_dir: "./cache"
+
+# Generation defaults
+generation:
+  duration: 5.0  # seconds
+  temperature: 0.85  # creativity (0.5-1.5) - slightly lower for more precise output
+  top_k: 200  # sampling parameter - lower for more focused generation
+  top_p: 0.0  # nucleus sampling (0 = disabled)
+  cfg_coef: 4.0  # classifier-free guidance - higher for better prompt following
+
+# Precise mode settings (used with --precise flag)
+precise_mode:
+  temperature: 0.7
+  top_k: 100
+  cfg_coef: 5.0
+
+# Audio processing
+audio:
+  sample_rate: 44100
+  normalize: true
+  normalize_target_db: -3.0
+  fade_in_ms: 10
+  fade_out_ms: 50
+  trim_silence: true
+  silence_threshold_db: -60
+
+# Output settings
+output:
+  directory: "./output"
+  format: "wav"  # wav, mp3, flac
+  mp3_bitrate: 320
+  naming: "timestamp"  # timestamp, prompt, or both
+
+# Presets for quick generation
+presets:
+  # Bass sounds
+  psytrance-bass:
+    prompt: "deep aggressive psytrance bass synthesizer, distorted, rolling, 303 acid style, isolated bass sound only, no drums, no other instruments, studio quality"
+    duration: 4.0
+    temperature: 0.75
+    cfg_coef: 4.5
+    
+  techno-bass:
+    prompt: "deep techno bass, sub-heavy, clean sine wave, minimal, isolated bass only, no other sounds, studio quality"
+    duration: 2.0
+    temperature: 0.7
+    cfg_coef: 4.5
+    
+  dnb-bass:
+    prompt: "drum and bass reese bass, detuned saw waves, growling, aggressive, isolated bass only, no drums, studio quality"
+    duration: 4.0
+    temperature: 0.8
+    cfg_coef: 4.0
+
+  # Kicks
+  techno-kick:
+    prompt: "single isolated punchy techno kick drum hit, tight transient, sub-bass tail, one shot, no reverb, studio quality"
+    duration: 1.0
+    temperature: 0.65
+    cfg_coef: 5.0
+    
+  psytrance-kick:
+    prompt: "single isolated psytrance kick drum hit, punchy attack, short decay, clicky, one shot, no reverb, studio quality"
+    duration: 1.0
+    temperature: 0.65
+    cfg_coef: 5.0
+    
+  # Hi-hats and cymbals
+  hihat-closed:
+    prompt: "single isolated crispy closed hi-hat hit, tight, electronic, one shot, studio quality, no reverb"
+    duration: 0.5
+    temperature: 0.65
+    cfg_coef: 4.5
+    
+  hihat-open:
+    prompt: "single isolated open hi-hat cymbal hit, sizzling, electronic, one shot, studio quality"
+    duration: 1.5
+    temperature: 0.65
+    cfg_coef: 4.5
+    
+  crash:
+    prompt: "single isolated crash cymbal hit, bright, electronic production, one shot, studio quality"
+    duration: 3.0
+    temperature: 0.7
+    cfg_coef: 4.0
+
+  # Drums and percussion
+  snare-acoustic:
+    prompt: "single isolated acoustic snare drum hit, punchy, bright, one shot, no reverb, studio quality"
+    duration: 1.0
+    temperature: 0.65
+    cfg_coef: 5.0
+    
+  snare-electronic:
+    prompt: "single isolated electronic snare hit, punchy, layered with clap, one shot, studio quality"
+    duration: 1.0
+    temperature: 0.65
+    cfg_coef: 5.0
+    
+  clap:
+    prompt: "single isolated electronic hand clap hit, layered, short reverb tail, one shot, studio quality"
+    duration: 1.5
+    temperature: 0.65
+    cfg_coef: 4.5
+    
+  tom-low:
+    prompt: "single isolated low tom drum hit, deep, punchy, one shot, studio quality"
+    duration: 2.0
+    temperature: 0.7
+    cfg_coef: 4.5
+
+  # Synth sounds
+  lead-saw:
+    prompt: "single sustained bright saw wave synthesizer lead note, detuned, powerful, isolated synth only, studio quality"
+    duration: 4.0
+    temperature: 0.8
+    cfg_coef: 4.0
+    
+  pad-ambient:
+    prompt: "single sustained ambient pad synthesizer chord, soft, evolving, ethereal, isolated pad only, studio quality"
+    duration: 8.0
+    temperature: 0.85
+    cfg_coef: 3.5
+    
+  pluck:
+    prompt: "single isolated pluck synthesizer note, short decay, bright, melodic, one shot, studio quality"
+    duration: 2.0
+    temperature: 0.7
+    cfg_coef: 4.5
+    
+  arp:
+    prompt: "arpeggiated synthesizer sequence, rhythmic, electronic"
+    duration: 8.0
+
+  # FX and textures
+  riser:
+    prompt: "build up riser, tension, increasing pitch and intensity"
+    duration: 8.0
+    
+  impact:
+    prompt: "cinematic impact hit, deep, reverberant"
+    duration: 3.0
+    
+  sweep:
+    prompt: "filter sweep effect, white noise, rising"
+    duration: 4.0
+    
+  atmosphere:
+    prompt: "dark atmospheric texture, ambient, evolving, mysterious"
+    duration: 15.0
+
+  # Loops
+  drum-loop-techno:
+    prompt: "techno drum loop, four on the floor kick, hi-hats, minimal"
+    duration: 8.0
+    
+  drum-loop-dnb:
+    prompt: "drum and bass breakbeat, fast, syncopated, energetic"
+    duration: 8.0
